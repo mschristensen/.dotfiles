@@ -1,4 +1,5 @@
 source $DOTFILES/antigen/antigen.zsh
+source $DOTFILES/antigen/p10k.zsh # Config for https://github.com/romkatv/powerlevel10k
 
 # zsh autocomplete
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -22,6 +23,6 @@ antigen bundle z
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search ./zsh-history-substring-search.zsh
 
-antigen theme af-magic
+antigen theme romkatv/powerlevel10k
 
 antigen apply
