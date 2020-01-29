@@ -6,7 +6,7 @@
 	excludesfile = /Users/mikechristensen/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -23,9 +23,20 @@
 	required = true
 	clean = git-lfs clean -- %f
 [commit]
-	gpgsign = true
+    gpgsign = true
+    template = /Users/mikechristensen/.stCommitMsg
 [tag]
-	gpgsign = true
-	forceSignAnnotated = true
+    gpgsign = true
+    forceSignAnnotated = true
 [gpg]
-	program = /usr/local/bin/gpg
+    program = gpg2
+[alias]
+    sync = "!git checkout master && \
+            git pull upstream master && \
+            git push origin master && \
+            git fetch --prune --all && \
+            git branch -vv | \
+            grep ': gone]'| \
+            grep -v \\* | \
+            awk '{ print $1; }' | \
+            xargs git branch -D"
