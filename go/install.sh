@@ -1,3 +1,14 @@
+# GVM prerequisites
+xcode-select --install
+brew update
+brew install mercurial
+
+# ************************************************************************************************************
+# ************************************************************************************************************
+# Hard copy of GVM installer: https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer
+# ************************************************************************************************************
+# ************************************************************************************************************
+
 #!/usr/bin/env bash
 
 display_error() {
@@ -122,3 +133,29 @@ echo
 echo "Please restart your terminal session or to get started right away run"
 echo " \`source ${source_file}\`"
 echo
+
+# ************************************************************************************************************
+# ************************************************************************************************************
+# ************************************************************************************************************
+# ************************************************************************************************************
+
+
+# Install a version of Go from tarball directly for bootstrapping purposes
+curl -o $HOME/gotarball https://dl.google.com/go/go1.11.4.darwin-amd64.tar.gz
+sudo tar -C /usr/local -xzf $HOME/gotarball
+mkdir $HOME/go
+export GOPATH="${HOME}/go"
+export GOROOT="${HOME}/go"
+
+# Prepare GVM
+source $HOME/.gvm/scripts/gvm
+export GOROOT_BOOTSTRAP=$GOROOT
+
+# Install target Go version with GVM
+gvm install go1.13.8
+gvm use go1.13.8 --default
+
+# Clean up
+sudo rm -rf /usr/local/go
+rm $HOME/gotarball
+rm -rf $HOME/go
