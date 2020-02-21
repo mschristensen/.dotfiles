@@ -1,1 +1,1 @@
-export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
+export PATH="$HOME/.gvm/gos/go1.13.5/bin:$PATH"

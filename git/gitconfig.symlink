@@ -24,7 +24,7 @@
 	clean = git-lfs clean -- %f
 [commit]
     gpgsign = true
-    template = /Users/mikechristensen/.stCommitMsg
+	template = /Users/mikechristensen/.stCommitMsg
 [tag]
     gpgsign = true
     forceSignAnnotated = true
