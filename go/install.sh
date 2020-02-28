@@ -152,10 +152,13 @@ source $HOME/.gvm/scripts/gvm
 export GOROOT_BOOTSTRAP=$GOROOT
 
 # Install target Go version with GVM
-gvm install go1.13.8
-gvm use go1.13.8 --default
+gvm install go1.14
+gvm use go1.14 --default
 
 # Clean up
 sudo rm -rf /usr/local/go
 rm $HOME/gotarball
 rm -rf $HOME/go
+
+# Install tools
+pushd $GOPATH; GO111MODULE=off go get golang.org/x/tools/gopls; popd
