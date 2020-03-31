@@ -6,4 +6,7 @@ mv $DOTFILES/kubectl $DOTFILES/bin/kubectl
 brew install kubectx
 brew install kube-ps1
 brew install derailed/k9s/k9s
+
 brew install helm
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo update
