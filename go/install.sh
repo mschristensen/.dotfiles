@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # GVM prerequisites
 xcode-select --install
 brew update
@@ -8,8 +10,6 @@ brew install mercurial
 # Hard copy of GVM installer: https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer
 # ************************************************************************************************************
 # ************************************************************************************************************
-
-#!/usr/bin/env bash
 
 display_error() {
     tput sgr0
@@ -153,6 +153,9 @@ export GOROOT_BOOTSTRAP=$GOROOT
 
 # Install target Go version with GVM
 gvm install go1.14
+gvm install go1.13
+GO111MODULE=off gvm install go1.11
+GO111MODULE=off gvm install go1.11.4
 gvm use go1.14 --default
 
 # Clean up
